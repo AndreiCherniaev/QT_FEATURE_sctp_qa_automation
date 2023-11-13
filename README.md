@@ -95,8 +95,11 @@ cd "$MyQtBaseDir/build_cross/"
 ../qt5/configure -platform linux-g++-32 -- -GNinja -DCMAKE_BUILD_TYPE=Release -DQT_BUILD_EXAMPLES=OFF -DQT_BUILD_TESTS=OFF -DCMAKE_INSTALL_PREFIX=${MyQtBaseDir}/build_artifacts_cross -DCMAKE_TOOLCHAIN_FILE=../toolchain_cross.cmake
 cmake --build . --parallel
 ```
-But I get error
+If you get error
+```
 QT_FEATURE_sctp_qa_automation/Qt_themself/qt5/qtbase/src/network/socket/qnativesocketengine_unix.cpp:32:10: fatal error: netinet/sctp.h: No such file or directory
+```
+It means sctp dev package is missing on your target system. It could be libsctp-dev or lksctp-tools-dev or lksctp-tools-devel or etc depends on your system. For Buildroot it should be lksctp-tools (BR2_PACKAGE_LKSCTP_TOOLS=y in file qemu_x86_ssh_sctp_defconfig).
 
 If no errors then you can do next steps
 ```
