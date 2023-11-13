@@ -46,7 +46,7 @@ set(FEATURE_ico OFF)
 set(FEATURE_xcb OFF)
 set(FEATURE_xcb_xlib OFF)
 set(QT_FEATURE_network ON)
-set(QT_FEATURE_sctp ON) # sudo apt install libsctp-dev https://stackoverflow.com/questions/53137250/netinet-sctp-h-no-such-file-or-directory
+set(FEATURE_sctp ON) # sudo apt install libsctp-dev https://stackoverflow.com/questions/53137250/netinet-sctp-h-no-such-file-or-directory
 set(QT_FEATURE_widgets OFF)
 set(QT_FEATURE_dbus OFF)
 set(QT_FEATURE_dbus_linked OFF)
