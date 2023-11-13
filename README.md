@@ -6,6 +6,7 @@ This repository is based on [QT_QEMU_qa_automation](https://github.com/AndreiChe
 Simple way
 ```
 git clone --remote-submodules --recurse-submodules -j8 https://github.com/AndreiCherniaev/QT_FEATURE_sctp_qa_automation.git
+cd QT_FEATURE_sctp_qa_automation/
 ```
 Or several-steps way
 ```
