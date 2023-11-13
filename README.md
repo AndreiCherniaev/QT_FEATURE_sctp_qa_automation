@@ -1,6 +1,7 @@
 ## QT_FEATURE_sctp ON cross-compile
 Make buildroot i586 distro, run on QEMU. Compiling Qt, cross-compiling Qt, deploy Qthelloworld
 This repository is based on [QT_QEMU_qa_automation](https://github.com/AndreiCherniaev/QT_QEMU_qa_automation)
+I test on Ubuntu 22 with Qt from git `eadc7461ca268e97d9cec885cee9c5a59cc365f8`
 
 # Clone
 Simple way
@@ -79,7 +80,13 @@ Let's configure Qt for for target (on-board computer)
 ```
 cd "$MyQtBaseDir/build_cross/"
 ../qt5/configure -platform linux-g++-32 -- -GNinja -DCMAKE_BUILD_TYPE=Release -DQT_BUILD_EXAMPLES=OFF -DQT_BUILD_TESTS=OFF -DCMAKE_STAGING_PREFIX=${PWD}/../build_artifacts_cross -DCMAKE_TOOLCHAIN_FILE=../toolchain_cross.cmake
-cmake --build . --parallel &&
+cmake --build . --parallel
+```
+But I get error
+QT_FEATURE_sctp_qa_automation/Qt_themself/qt5/qtbase/src/network/socket/qnativesocketengine_unix.cpp:32:10: fatal error: netinet/sctp.h: No such file or directory
+
+If no errors then you can do next steps
+```
 cmake --install .
 ```
 
