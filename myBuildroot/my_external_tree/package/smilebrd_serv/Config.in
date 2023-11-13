@@ -1,0 +1,6 @@
+config BR2_PACKAGE_SMILEBRD_SERV
+        bool "smilebrd_serv"
+        depends on BR2_LINUX_KERNEL
+        help
+          Utility to work with smile666 board777 888 device and send some smiles
+          to chat.
