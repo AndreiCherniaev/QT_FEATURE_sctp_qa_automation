@@ -1,5 +1,7 @@
 ## QT_FEATURE_sctp ON cross-compile
-Make buildroot i586 distro, run on QEMU. Compiling Qt, cross-compiling Qt, deploy Qthelloworld
+My goal is cross-compile Qt with [sctp](https://doc.qt.io/qt-6/qsctpsocket.html#details) and run test application.
+
+Let's Make buildroot i586 [distro](https://en.wikipedia.org/wiki/Linux_distribution), run on QEMU. Compiling Qt, cross-compiling Qt, deploy Qthelloworld
 This repository is based on [QT_QEMU_qa_automation](https://github.com/AndreiCherniaev/QT_QEMU_qa_automation)
 I test on Ubuntu 22 with Qt from git `eadc7461ca268e97d9cec885cee9c5a59cc365f8`
 
