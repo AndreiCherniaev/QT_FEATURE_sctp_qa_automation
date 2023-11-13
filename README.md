@@ -111,17 +111,19 @@ Back to MyQtBaseDir (QT_FEATURE_sctp_qa_automation/)
 cd "$MyQtBaseDir"
 ```
 
-Prepare folder to build test Qt hello world application
+Build Client application
 ```
-rm -Rf "$MyQtBaseDir/test_qt_helloworld/build-test_qt_helloworld/"
-mkdir -p "$MyQtBaseDir/test_qt_helloworld/build-test_qt_helloworld"
+"$MyBaseDir/Qt_themself/build_artifacts_cross/bin/qt-cmake" -S "$MyBaseDir/progs/QSocketClient_test/src/" -B "$MyBaseDir/progs/QSocketClient_test/build-cross/" -DCMAKE_BUILD_TYPE=Release &&
+cmake --build "$MyBaseDir/progs/QSocketClient_test/build-cross/" --parallel
 ```
-Build Qt hello world application
+Now we have executable file QT_FEATURE_sctp_qa_automation/progs/QSocketClient_test/build-cross/QSocketClient_test I plan execute it on host machine.
+
+Build Server application
 ```
-"$MyQtBaseDir/build_artifacts_cross/bin/qt-cmake" -S "$MyBaseDir/progs/test_qt_helloworld" -B "$MyBaseDir/progs/test_qt_helloworld/build-test_qt_helloworld" -DCMAKE_BUILD_TYPE=Release
-cmake --build "$MyBaseDir/progs/test_qt_helloworld/build-test_qt_helloworld/" --parallel
+"$MyBaseDir/Qt_themself/build_artifacts_cross/bin/qt-cmake" -S "$MyBaseDir/progs/QServer_test/src/" -B "$MyBaseDir/progs/QServer_test/build-cross/" -DCMAKE_BUILD_TYPE=Release &&
+cmake --build "$MyBaseDir/progs/QServer_test/build-cross/" --parallel
 ```
-Now we have executable file progs/test_qt_helloworld/build-test_qt_helloworld/test and see "qt_helloworld"
+Now we have executable file QT_FEATURE_sctp_qa_automation/progs/QServer_test/build-cross/QServer_test I plan execute it on QEMU machine.
 
 ## Run QEMU
 I use -cpu pentium3 to set no-sse2 machine. Please use Second console for it. Run from MyQtBaseDir folder
