@@ -16,6 +16,13 @@ cd QT_FEATURE_sctp_qa_automation/
 git submodule update --remote --merge
 ```
 
+## Prepare host
+I test on Ubuntu 22. Don't forget to install [dependency](https://stackoverflow.com/questions/53137250/netinet-sctp-h-no-such-file-or-directory).
+```
+sudo apt-get build-dep qtbase5-dev
+sudo apt install libsctp-dev 
+```
+
 ## Before start
 Check that you are in dir QT_FEATURE_sctp_qa_automation/
 ```
@@ -57,7 +64,7 @@ rm -Rf ${MyQtBaseDir}/build_host/ ${MyQtBaseDir}/build_artifacts_host/ && mkdir 
 rm -Rf ${MyQtBaseDir}/build_cross/ ${MyQtBaseDir}/build_artifacts_cross/ && mkdir ${MyQtBaseDir}/build_cross ${MyQtBaseDir}/build_artifacts_cross
 ```
 
-If you want test another Qr version do 
+If you want test another Qt version do 
 ```
 rm -Rf ${MyQtBaseDir}/qt5/
 ```
