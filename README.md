@@ -1,32 +1,21 @@
-# qa-automation
+## QT_FEATURE_sctp ON cross-compile
 Make buildroot i586 distro, run on QEMU. Compiling Qt, cross-compiling Qt, deploy Qthelloworld
+This repository is based on [QT_QEMU_qa_automation](https://github.com/AndreiCherniaev/QT_QEMU_qa_automation)
 
 # Clone
 Simple way
 ```
-git clone --remote-submodules --recurse-submodules -j8 https://github.com/AndreiCherniaev/QT_QEMU_qa_automation.git
+git clone --remote-submodules --recurse-submodules -j8 https://github.com/AndreiCherniaev/QT_FEATURE_sctp_qa_automation.git
 ```
 Or several-steps way
 ```
-git clone  https://github.com/AndreiCherniaev/QT_QEMU_qa_automation.git
-cd QT_QEMU_qa_automation/
+git clone  https://github.com/AndreiCherniaev/QT_FEATURE_sctp_qa_automation.git
+cd QT_FEATURE_sctp_qa_automation/
 git submodule update --remote --merge
 ```
 
-## Warnings
-More information about [qa automation](https://habr.com/ru/post/520310/).  
-Please [install](https://habr.com/ru/articles/735754/) all packages what your distro needs to run QEMU.  
-Please install all packages what your distro needs to build Qt (see https://wiki.qt.io/Building_Qt_6_from_Git ).  
-This steps use 5555 port for ssh communication. If you want, you can replace 5555 to any.  
-This steps use buildroot mirror on github because of fast downloading from github. But you can use `git clone git://git.buildroot.net/buildroot`  
-Buildroot is submodule which is added this way
-```
-git submodule add -b master https://github.com/buildroot/buildroot
-```
-This steps use Qt mirror on github because of fast downloading from github. But you can use `git clone git://code.qt.io/qt/qt5.git qt5`  
-
 ## Before start
-Check that you are in dir QT_QEMU_qa_automation/
+Check that you are in dir QT_FEATURE_sctp_qa_automation/
 ```
 MyBaseDir=$PWD && MyQtBaseDir="$MyBaseDir/Qt_themself"
 ```
@@ -73,7 +62,7 @@ rm -Rf ${MyQtBaseDir}/qt5/
 Let's clone Qt
 ```
 git clone https://github.com/qt/qt5 qt5 && cd qt5
-git checkout 6.4.2
+# uncomment if you want special version # git checkout 6.4.2
 perl init-repository --module-subset=qtbase
 ```
 
@@ -93,7 +82,7 @@ cmake --build . --parallel &&
 cmake --install .
 ```
 
-Back to MyQtBaseDir (QT_QEMU_qa_automation)
+Back to MyQtBaseDir (QT_FEATURE_sctp_qa_automation/)
 ```
 cd "$MyQtBaseDir"
 ```
@@ -123,7 +112,7 @@ options=(-rvz -e "ssh -p 5555 -i "$MyBaseDir/myBuildroot/my_external_tree/board/
 rsync "${options[@]}" "$MyBaseDir/progs/test_qt_helloworld/build-test_qt_helloworld/test" root@localhost:/root/
 ```
 
-To connect be at MyBaseDir (QT_QEMU_qa_automation/) folder and use
+To connect be at MyBaseDir (QT_FEATURE_sctp_qa_automation/) folder and use
 ```
 ssh root@localhost -p 5555 -i "$MyBaseDir/myBuildroot/my_external_tree/board/my_company/my_board/qemu_ssh_key/my_qemu_ssh_key" -o StrictHostKeyChecking=no
 ```
