@@ -10,3 +10,4 @@ myBuildroot/my_external_tree/board/my_company/my_board/qemu_ssh_key/my_qemu_ssh_
 myBuildroot/my_external_tree/board/my_company/my_board/qemu_ssh_key/my_qemu_ssh_key
 myBuildroot/my_external_tree/board/my_company/my_board/fs-overlay/root/.ssh/authorized_keys
 *.br2-external.*
+*.user
