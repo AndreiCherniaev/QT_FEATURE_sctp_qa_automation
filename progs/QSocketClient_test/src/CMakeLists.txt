@@ -14,17 +14,17 @@ find_package(Qt6 REQUIRED COMPONENTS Core Network)
 
 set(CMAKE_AUTOMOC ON)
 
-qt_add_executable(fortuneclient
+qt_add_executable(${PROJECT_NAME}
     client.cpp client.h
     main.cpp
 )
 
-target_link_libraries(fortuneclient PRIVATE
+target_link_libraries(${PROJECT_NAME} PRIVATE
     Qt6::Core
     Qt6::Network
 )
 
-install(TARGETS fortuneclient
+install(TARGETS ${PROJECT_NAME}
     RUNTIME DESTINATION "${INSTALL_EXAMPLEDIR}"
     BUNDLE DESTINATION "${INSTALL_EXAMPLEDIR}"
     LIBRARY DESTINATION "${INSTALL_EXAMPLEDIR}"

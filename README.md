@@ -135,13 +135,17 @@ qemu-system-i386 -M pc -cpu pentium3 -kernel "$MyBaseDir/myBuildroot/buildroot/o
 to qemu machine to folder /root
 ```
 options=(-rvz -e "ssh -p 5555 -i "$MyBaseDir/myBuildroot/my_external_tree/board/my_company/my_board/qemu_ssh_key/my_qemu_ssh_key" -o StrictHostKeyChecking=no" --progress)
-rsync "${options[@]}" "$MyBaseDir/progs/test_qt_helloworld/build-test_qt_helloworld/test" root@localhost:/root/
+rsync "${options[@]}" "$MyBaseDir/progs/QServer_test/build-cross/QServer_test" root@localhost:/root/
+rsync "${options[@]}" "$MyBaseDir/progs/QSocketClient_test/build-cross/QSocketClient_test" root@localhost:/root/
 ```
 
 To connect be at MyBaseDir (QT_FEATURE_sctp_qa_automation/) folder and use
 ```
 ssh root@localhost -p 5555 -i "$MyBaseDir/myBuildroot/my_external_tree/board/my_company/my_board/qemu_ssh_key/my_qemu_ssh_key" -o StrictHostKeyChecking=no
 ```
+
+Befor run our applications check sctp capabilities on your [targer operation system](https://github.com/esnet/iperf/issues/1561#issuecomment-1686723672)
+Run `checksctp` to check whether the kernel supports sctp. If you get message "checksctp: Protocol not supported" it means target operation system can't use sctp...
 
 Now we can run app on qemu (!) machine (after ssh login)
 ```
